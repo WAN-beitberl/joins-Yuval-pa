@@ -32,3 +32,11 @@ SELECT cust_name AS Customer, salesman.city AS City
   JOIN customer
     ON salesman.salesman_id = customer.salesman_id
  WHERE salesman.commission BETWEEN 0.12 AND 0.14;
+7)
+SELECT cust_name, salesman.commission AS "Commission%", (orders.purch_amt*salesman.commission) AS Commission
+  FROM orders
+  JOIN salesman
+    ON orders.salesman_id = salesman.salesman_id
+  JOIN customer
+    ON customer.customer_id = orders.customer_id
+ WHERE grade >= 200;
