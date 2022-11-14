@@ -1,0 +1,22 @@
+1)
+SELECT name, cust_name, customer.city 
+  FROM salesman
+  JOIN customer
+    ON salesman.city = customer.city;
+2)
+SELECT name, cust_name 
+  FROM salesman
+  JOIN customer
+    ON salesman.salesman_id = customer.salesman_id;
+3)
+SELECT ord_no, customer.cust_name, orders.customer_id, orders.salesman_id
+  FROM orders
+  JOIN customer
+    ON customer.customer_id = orders.customer_id
+  JOIN salesman
+    ON salesman.salesman_id = orders.salesman_id AND customer.city != salesman.city;
+4)
+SELECT ord_no, cust_name
+  FROM orders
+    JOIN customer
+      ON orders.customer_id = customer.customer_id;
