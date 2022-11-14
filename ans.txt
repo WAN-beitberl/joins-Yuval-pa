@@ -1,0 +1,48 @@
+1)
+SELECT name, cust_name, customer.city 
+  FROM salesman
+  JOIN customer
+    ON salesman.city = customer.city;
+2)
+SELECT name, cust_name 
+  FROM salesman
+  JOIN customer
+    ON salesman.salesman_id = customer.salesman_id;
+3)
+SELECT ord_no, customer.cust_name, orders.customer_id, orders.salesman_id
+  FROM orders
+  JOIN customer
+    ON customer.customer_id = orders.customer_id
+  JOIN salesman
+    ON salesman.salesman_id = orders.salesman_id AND customer.city != salesman.city;
+4)
+SELECT ord_no, cust_name
+  FROM orders
+    JOIN customer
+      ON orders.customer_id = customer.customer_id;
+5)
+SELECT cust_name AS Customer, grade AS Grade
+  FROM orders
+  JOIN customer
+    ON orders.customer_id = customer.customer_id
+ WHERE Grade IS NOT NULL;
+6)
+SELECT cust_name AS Customer, salesman.city AS City
+  FROM salesman
+  JOIN customer
+    ON salesman.salesman_id = customer.salesman_id
+ WHERE salesman.commission BETWEEN 0.12 AND 0.14;
+7)
+SELECT cust_name, salesman.commission AS "Commission%", (orders.purch_amt*salesman.commission) AS Commission
+  FROM orders
+  JOIN salesman
+    ON orders.salesman_id = salesman.salesman_id
+  JOIN customer
+    ON customer.customer_id = orders.customer_id
+ WHERE grade >= 200;
+8)
+SELECT * 
+  FROM orders
+  JOIN customer
+    ON customer.customer_id = orders.customer_id
+ WHERE orders.ord_date ='2012-10-05';
