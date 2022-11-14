@@ -26,3 +26,9 @@ SELECT cust_name AS Customer, grade AS Grade
   JOIN customer
     ON orders.customer_id = customer.customer_id
  WHERE Grade IS NOT NULL;
+6)
+SELECT cust_name AS Customer, salesman.city AS City
+  FROM salesman
+  JOIN customer
+    ON salesman.salesman_id = customer.salesman_id
+ WHERE salesman.commission BETWEEN 0.12 AND 0.14;
