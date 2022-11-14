@@ -40,3 +40,9 @@ SELECT cust_name, salesman.commission AS "Commission%", (orders.purch_amt*salesm
   JOIN customer
     ON customer.customer_id = orders.customer_id
  WHERE grade >= 200;
+8)
+SELECT * 
+  FROM orders
+  JOIN customer
+    ON customer.customer_id = orders.customer_id
+ WHERE orders.ord_date ='2012-10-05';
