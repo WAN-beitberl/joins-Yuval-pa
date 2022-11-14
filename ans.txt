@@ -20,3 +20,9 @@ SELECT ord_no, cust_name
   FROM orders
     JOIN customer
       ON orders.customer_id = customer.customer_id;
+5)
+SELECT cust_name AS Customer, grade AS Grade
+  FROM orders
+  JOIN customer
+    ON orders.customer_id = customer.customer_id
+ WHERE Grade IS NOT NULL;
