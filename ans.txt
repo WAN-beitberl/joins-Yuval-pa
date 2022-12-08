@@ -68,4 +68,28 @@ LEFT OUTER JOIN orders
 ON customer.customer_id = orders.customer_id
 LEST OUTER JOIN salesman
 ON salesman.salesman_id = customer.customer_id;
+12)
+SELECT s.name, s.city
+FROM customer c
+RIGHT OUTER JOIN salesman s
+ON c.salesman_id = s.salesman_id;
+13)
+SELECT s.name, c.cust_name AS "customer name", s.city AS "salesman city",
+c.city AS "customer city", c.grade, o.ord_no AS "order number", o.ord_date AS
+"order date", o.purch_amt AS "purches amount"
+FROM orders o
+LEFT OUTER JOIN customer c
+ON o.customr_id = c.customer_id
+LEFT OUTER JOIN salesman s
+ON s.salesman_id = o.salesman_id;
+14)
+SELECT s.name, s.city, s.salesman_id AS "id"
+FROM salesman s
+LEFT OUTER JOIN customer c
+ON s.salesman_id = c.salesman_id
+LEFT OUTER JOIN orders o
+ON s.salesman_id = o.salesman_id
+WEHRE o.purch_amt >= 2000(
+AND c.grade IS NOT NULL
+OR c.customer_id != o.customer_id);
 
