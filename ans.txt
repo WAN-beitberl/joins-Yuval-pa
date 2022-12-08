@@ -46,3 +46,26 @@ SELECT *
   JOIN customer
     ON customer.customer_id = orders.customer_id
  WHERE orders.ord_date ='2012-10-05';
+9)
+SELECT cust_name, customer.city AS customer_city, garde, name AS salesman,
+salesman.city AS salesmancity
+FROM customer
+JOIN salesman
+ON customer.salesman_id = salesman,salesman_id
+WHERE grade < 300
+ORDER BY customer_id ASC;
+10)
+SELECT cust_name, city, ord_no, ord_date, purch_amt
+FROM customer 
+JOIN orders
+ON customer.customer_id = orders.customer_id
+ORDER BY ord_date ASC;
+11)
+SELECT cust_name, customer.city, ord_no, ord_date, purch_amt, name AS
+salesmanName, commission
+FROM customer
+LEFT OUTER JOIN orders
+ON customer.customer_id = orders.customer_id
+LEST OUTER JOIN salesman
+ON salesman.salesman_id = customer.customer_id;
+
