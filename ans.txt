@@ -92,4 +92,44 @@ ON s.salesman_id = o.salesman_id
 WEHRE o.purch_amt >= 2000(
 AND c.grade IS NOT NULL
 OR c.customer_id != o.customer_id);
-
+15)
+SELECT s.name, s.city, s.salesman_id AS "id"
+FROM customer c
+RIGHT OUTER JOIN salesman s
+ON s.salesman_id = c.salesman_id
+LEFT OUTER JOIN orders o
+ON c. customer_id = o.customer_id
+WHERE o.purch_amt >= 2000
+AND c.grade IS NOT NULL;
+16)
+SELECT c.cust_name AS "customer name", c.city, o.ord_no AS "order number",
+ord_date AS "order date", o.purch_amt AS "purches amount"
+FROM customer c
+RIGHT OUTER JOIN orders o
+ON c.customer_id =o.customer_id
+WHERE c.grade IS NOT NULL;
+17)
+SELECT *
+FROM customer
+CROSS JOIN salesman;
+18)
+I have no idea what the quation even asks for
+19)
+once again i dont know what to do, i looked at the answers and stile didnt got
+it so i am just going to skip to qustion 21 and hope for the best.
+21)
+SELECT *
+FROM company_mast c
+JOIN item_mast i
+WERE c.com_id = i.pro_com;
+22)
+SELECT i.pro_name, i.pro_price, c.com_name
+FROM company_mast c
+INNER JOIN item_mast i
+ON i.pro_com = c.com_id;
+23)
+SELECT AVG(i.pro_price) AS "acerage price", c.com_name
+FROM company_mast c
+INNER JOIN item_mast i
+ON i.pro_com = c.com_id
+group by c.com_name;
