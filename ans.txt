@@ -133,3 +133,44 @@ FROM company_mast c
 INNER JOIN item_mast i
 ON i.pro_com = c.com_id
 group by c.com_name;
+24)
+SELECT AVG(i.pro_price) AS "average price", c.com_name
+FROM company_mast c
+INNER JOIN item_mast i
+ON i.pro_com = c.com_id
+GROUP BY c.com_name
+HAVING AVG(i.pro_price) >= 360;
+25)
+SELECT MAX(i.pro_price) AS "max price", c.com_name
+FROM comapny_mast c
+INNER JOIN item_mast i
+ON i.pro_com = c.com_id
+GROUP BY c.com_name;
+26)
+SELECT *
+FROM emp_details det
+LEFT OUTER JOIN emp_department dep
+ON det.emp_dept = dep.dpt_code;
+27)
+SELECT det.emp_fname as "first name", det.emp_lname AS "lasr name",
+dep.dpt_allotment
+FROM emp_details det
+LEFT OUTER JOIN emp_department dep
+ON det.emp_dept = dep.dpt_code;
+28)
+SELECT det.emp_fname, det.emp_lname, dep.dpt_allotment
+FROM emp_details det
+RIGHT OUTER JOIN emp_department dep
+ON det.emp_dept = dep.dpt_code
+WHERE dep.dpt_allotment >= 5000;
+29)
+SELECT dep.dpt_name
+FROM emp_details det
+RIGHT OUTER JOIN emp_department dep
+ON det.emp_dept = dep.dpt_code
+GROUP BY dep.dpt_name
+HAVING COUNT(*) > 2;
+
+
+p.s: tbh i dont think i actualy know the subject well becous i had to look at
+the answers several times.
